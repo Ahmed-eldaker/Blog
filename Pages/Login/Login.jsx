@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -95,18 +94,20 @@ const Login = () => {
           disabled={loading}
         >
           {loading ? (
-            <i className="fa-solid fa-spinner fa-spin-pulse"></i>
+            <div class="ld-ripple">
+              <div></div>
+              <div></div>
+            </div>
           ) : (
             "Login"
           )}
         </button>
 
         <span className="ms-3 ">
-          {" "}
-          Don't have an account yet ?{" "}
+          Don't have an account yet ?
           <Link
             className="text-danger border-bottom border-danger"
-            to="/register"
+            to="/signup"
           >
             Register here
           </Link>{" "}

@@ -160,7 +160,10 @@ const Register = () => {
           disabled={loading}
         >
           {loading ? (
-            <i className="fa-solid fa-spinner fa-spin-pulse"></i>
+            <div class="ld-ripple">
+              <div></div>
+              <div></div>
+            </div>
           ) : (
             "Sign up"
           )}
