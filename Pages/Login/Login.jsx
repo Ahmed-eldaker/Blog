@@ -81,26 +81,12 @@ const Login = () => {
           </div>
         ) : null}
 
-        <div>
-          <Link className="text-danger fw-medium my-3" to="/forgetPassword">
-            Forget Password ?
-          </Link>
-        </div>
-
         <button
-          className=" btn btn-success bg-success my-3"
+          className=" btn shadow btn-primary-subtle bg-primary-subtle my-3"
           type="submit"
           disabled={loading}
         >
-          {loading ? (
-            <div className="loader">
-              <div className="scanner">
-                <span>Loading...</span>
-              </div>
-            </div>
-          ) : (
-            "Login"
-          )}
+          {loading ? <div class="loader"></div> : "Login"}
         </button>
 
         <span className="ms-3 ">

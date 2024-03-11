@@ -10,10 +10,13 @@ import { NavBar } from "../components/NavBar";
 import { MyProfile } from "../components/MyProfile";
 
 function App() {
+  let [isLoggedIn, setIsLoggedIn] = useState(false);
+  isLoggedIn = localStorage.getItem("userToken");
+  console.log(isLoggedIn);
   return (
     <>
       <BrowserRouter>
-        <NavBar />
+        <NavBar isLoggedIn={isLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />

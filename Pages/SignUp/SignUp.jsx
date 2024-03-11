@@ -65,7 +65,7 @@ const Register = () => {
 
       <form onSubmit={formik.handleSubmit}>
         <label htmlFor="name" className="my-2">
-          Name{" "}
+          Name
         </label>
         <input
           className="form-control "
@@ -155,19 +155,11 @@ const Register = () => {
         ) : null}
 
         <button
-          className="btn btn-success bg-success my-3"
+          className="btn shadow btn-primary-subtle bg-primary-subtle my-3"
           type="submit"
           disabled={loading}
         >
-          {loading ? (
-            <div className="loader">
-              <div className="scanner">
-                <span>Loading...</span>
-              </div>
-            </div>
-          ) : (
-            "Sign up"
-          )}
+          {loading ? <div class="loader"></div> : "Sign up"}
         </button>
 
         <span className="ms-3">
