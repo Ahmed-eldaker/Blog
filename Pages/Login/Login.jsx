@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { useFormik } from "formik/dist";
+import { useFormik } from "formik";
 const Login = () => {
   const navigate = useNavigate();
   const [apiMessage, setApiMessage] = useState(""); //store api error
@@ -25,11 +25,10 @@ const Login = () => {
           "https://ecommerce.routemisr.com/api/v1/auth/signin",
           values
         );
-        console.log(response.data.token, "aaa");
+        console.log(response.data);
         if (response.data.message === "success") {
           localStorage.setItem("userToken", response.data.token);
           navigate("/home");
-          console.log(response.data);
         } else {
           setApiMessage(response.data.message);
         }
@@ -89,14 +88,15 @@ const Login = () => {
         </div>
 
         <button
-          className="btn btn-success my-3"
+          className=" btn btn-success bg-success my-3"
           type="submit"
           disabled={loading}
         >
           {loading ? (
-            <div class="ld-ripple">
-              <div></div>
-              <div></div>
+            <div className="loader">
+              <div className="scanner">
+                <span>Loading...</span>
+              </div>
             </div>
           ) : (
             "Login"

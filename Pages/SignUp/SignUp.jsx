@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useFormik } from "formik/dist";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -101,7 +101,7 @@ const Register = () => {
         ) : null}
 
         <label htmlFor="password" className="my-2">
-          password{" "}
+          password
         </label>
         <input
           className="form-control "
@@ -155,14 +155,15 @@ const Register = () => {
         ) : null}
 
         <button
-          className="btn btn-success my-3"
+          className="btn btn-success bg-success my-3"
           type="submit"
           disabled={loading}
         >
           {loading ? (
-            <div class="ld-ripple">
-              <div></div>
-              <div></div>
+            <div className="loader">
+              <div className="scanner">
+                <span>Loading...</span>
+              </div>
             </div>
           ) : (
             "Sign up"
@@ -170,10 +171,10 @@ const Register = () => {
         </button>
 
         <span className="ms-3">
-          you already have an account ?{" "}
+          you already have an account ?
           <Link className="text-danger border-bottom border-danger" to="/login">
             login here
-          </Link>{" "}
+          </Link>
         </span>
 
         {apiMessage && (
