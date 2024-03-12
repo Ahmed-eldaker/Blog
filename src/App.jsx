@@ -9,7 +9,7 @@ import InsertPosts from "../components/InsertPosts";
 import { NavBar } from "../components/NavBar";
 import { MyProfile } from "../components/MyProfile";
 import axios from "axios";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   let [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -36,6 +36,7 @@ function App() {
     try {
       await axios.delete(`http://localhost:3005/posts/${id}`);
       displayData();
+      toast.success("Deleted Quote Successfully!");
     } catch (error) {
       console.error("Error deleting item:", error.message);
     }
