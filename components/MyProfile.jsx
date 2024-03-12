@@ -1,9 +1,9 @@
 import React from "react";
 
-export const MyProfile = () => {
+export const MyProfile = ({ display, handleDelete }) => {
   return (
     <div className="d-flex w-100 flex-column justify-content-center align-items-center">
-      <h1>My Profile</h1>
+      <h1> I'm {}</h1>
       <img
         width={"150px"}
         height={"150px"}
@@ -11,6 +11,36 @@ export const MyProfile = () => {
         src="/src/assets/logo_blog.png"
         alt=""
       />
+      <div>
+        {display.map((item, idx) =>
+          item.flagStatus ? (
+            <div
+              style={{ maxWidth: "700px" }}
+              className="shadow my-3 px-2 py-3 rounded-2"
+              key={idx}
+            >
+              {item.description}
+              <div className="text-end">
+                {item.flagStatus ? (
+                  <button
+                    className="btn me-1 btn-outline-danger"
+                    onClick={() => handleDelete(item.id)}
+                  >
+                    &#10060;
+                  </button>
+                ) : (
+                  ""
+                )}
+                {item.flagStatus ? (
+                  <button className="btn btn-outline-primary">&#9999;</button>
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
+          ) : null
+        )}
+      </div>
     </div>
   );
 };
