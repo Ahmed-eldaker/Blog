@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-const Login = () => {
+const Login = ({ displayData }) => {
   const navigate = useNavigate();
   const [apiMessage, setApiMessage] = useState(""); //store api error
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ const Login = () => {
         );
         if (response.data.message === "success") {
           localStorage.setItem("userToken", response.data.token);
-          // console.log(response.data.user.name);
+          displayData();
           navigate("/home");
         } else {
           setApiMessage(response.data.message);

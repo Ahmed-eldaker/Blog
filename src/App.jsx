@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import ErrorPage from "../Pages/Error/ErrorPage";
@@ -9,10 +9,12 @@ import InsertPosts from "../components/InsertPosts";
 import { NavBar } from "../components/NavBar";
 import { MyProfile } from "../components/MyProfile";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   let [isLoggedIn, setIsLoggedIn] = useState(false);
   isLoggedIn = localStorage.getItem("userToken");
+  // const [render, setRender] = useState(second);
   let [display, setDisplay] = useState([]);
 
   // Function to fetch data from the json
@@ -42,24 +44,60 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar isLoggedIn={isLoggedIn} />
+        <ToastContainer />
         <Routes>
           <Route
             path="/"
-            element={<Home handleDelete={handleDelete} display={display} />}
+            element={
+              <>
+                <NavBar isLoggedIn={isLoggedIn} />{" "}
+                <Home
+                  isLoggedIn={isLoggedIn}
+                  handleDelete={handleDelete}
+                  display={display}
+                />
+              </>
+            }
           />
           <Route
             path="/home"
-            element={<Home handleDelete={handleDelete} display={display} />}
+            element={
+              <>
+                <NavBar isLoggedIn={isLoggedIn} />
+                <Home
+                  isLoggedIn={isLoggedIn}
+                  handleDelete={handleDelete}
+                  display={display}
+                />
+              </>
+            }
           />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login displayData={displayData} />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/*" element={<ErrorPage />} />
-          <Route path="/insertPosts" element={<InsertPosts />} />
+          <Route
+            path="/insertPosts"
+            element={
+              <>
+                <NavBar isLoggedIn={isLoggedIn} />
+                <InsertPosts
+                  isLoggedIn={isLoggedIn}
+                  displayData={displayData}
+                />
+              </>
+            }
+          />
           <Route
             path="/myProfile"
             element={
-              <MyProfile display={display} handleDelete={handleDelete} />
+              !isLoggedIn ? (
+                <Navigate to="/login" />
+              ) : (
+                <>
+                  <NavBar isLoggedIn={isLoggedIn} />
+                  <MyProfile display={display} handleDelete={handleDelete} />
+                </>
+              )
             }
           />
         </Routes>

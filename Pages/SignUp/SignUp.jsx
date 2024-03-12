@@ -119,7 +119,7 @@ const Register = () => {
         ) : null}
 
         <label htmlFor="rePassword" className="my-2">
-          Re-Password{" "}
+          Re-Password
         </label>
         <input
           className="form-control "

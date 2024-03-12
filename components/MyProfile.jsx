@@ -5,6 +5,7 @@ export const MyProfile = ({ display, handleDelete }) => {
   return (
     <div className="d-flex w-100 flex-column justify-content-center align-items-center">
       <h1> I'm {}</h1>
+      <div className=" end-0 top-0 ">Log out </div>
       <img
         width={"150px"}
         height={"150px"}
@@ -28,7 +29,7 @@ export const MyProfile = ({ display, handleDelete }) => {
             >
               {item.description}
               <div className="text-end">
-                {item.flagStatus ? (
+                {item.flagStatus && isLoggedIn ? (
                   <div
                     className="btn me-1 btn-outline-danger"
                     onClick={() => handleDelete(item.id)}
@@ -38,7 +39,7 @@ export const MyProfile = ({ display, handleDelete }) => {
                 ) : (
                   ""
                 )}
-                {item.flagStatus ? (
+                {item.flagStatus && isLoggedIn ? (
                   <div className="btn btn-outline-primary">&#9999;</div>
                 ) : (
                   ""

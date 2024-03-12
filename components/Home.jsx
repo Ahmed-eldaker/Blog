@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import InsertPosts from "./InsertPosts";
 
 export const Home = (props) => {
-  let { display, handleDelete } = props;
+  let { display, handleDelete, isLoggedIn } = props;
   // console.log(display);
   return (
     <div className="container d-flex justify-align-content-end align-items-center flex-column">
@@ -22,7 +22,7 @@ export const Home = (props) => {
           >
             {item.description}
             <div className="text-end">
-              {item.flagStatus ? (
+              {item.flagStatus && isLoggedIn ? (
                 <div
                   className="btn me-1 btn-outline-danger"
                   onClick={() => handleDelete(item.id)}
@@ -32,7 +32,7 @@ export const Home = (props) => {
               ) : (
                 ""
               )}
-              {item.flagStatus ? (
+              {item.flagStatus && isLoggedIn ? (
                 <div className="btn btn-outline-primary">&#9999;</div>
               ) : (
                 ""

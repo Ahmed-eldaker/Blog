@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const InsertPosts = () => {
+const InsertPosts = ({ displayData, isLoggedIn }) => {
   const [flagStatus, setFlagStatus] = useState(true);
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,9 +26,9 @@ const InsertPosts = () => {
           headers: { "Content-Type": "application/json" },
         }
       );
-      console.log(formData);
-      console.log(response.data);
+
       clearForm();
+      displayData();
       navigate("/home");
     } catch (error) {
       setError(error.message);
