@@ -25,9 +25,9 @@ const Login = () => {
           "https://ecommerce.routemisr.com/api/v1/auth/signin",
           values
         );
-        console.log(response.data);
         if (response.data.message === "success") {
           localStorage.setItem("userToken", response.data.token);
+          console.log(response.data.user.name);
           navigate("/home");
         } else {
           setApiMessage(response.data.message);

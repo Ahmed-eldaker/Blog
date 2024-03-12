@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../Pages/Login/Login";
@@ -17,7 +17,7 @@ function App() {
   let [display, setDisplay] = useState([]);
 
   // Function to fetch data from the json
-  (async function displayData() {
+  async function displayData() {
     try {
       const response = await axios.get("http://localhost:3005/posts");
       setDisplay(response.data);
@@ -26,7 +26,10 @@ function App() {
     } catch (error) {
       console.error("Error fetching data:", error.message);
     }
-  });
+  }
+  useEffect(() => {
+    displayData();
+  }, []);
   console.log(display);
 
   // Function to handle  dele
