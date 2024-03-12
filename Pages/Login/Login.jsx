@@ -27,7 +27,7 @@ const Login = () => {
         );
         if (response.data.message === "success") {
           localStorage.setItem("userToken", response.data.token);
-          console.log(response.data.user.name);
+          // console.log(response.data.user.name);
           navigate("/home");
         } else {
           setApiMessage(response.data.message);

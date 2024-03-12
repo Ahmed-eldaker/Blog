@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const MyProfile = ({ display, handleDelete }) => {
   return (
@@ -11,6 +12,12 @@ export const MyProfile = ({ display, handleDelete }) => {
         src="/src/assets/logo_blog.png"
         alt=""
       />
+      <Link
+        className="my-3 bg-primary-subtle btn text-decoration-none"
+        to="/insertPosts"
+      >
+        What is happening?!
+      </Link>
       <div>
         {display.map((item, idx) =>
           item.flagStatus ? (
@@ -22,17 +29,17 @@ export const MyProfile = ({ display, handleDelete }) => {
               {item.description}
               <div className="text-end">
                 {item.flagStatus ? (
-                  <button
+                  <div
                     className="btn me-1 btn-outline-danger"
                     onClick={() => handleDelete(item.id)}
                   >
                     &#10060;
-                  </button>
+                  </div>
                 ) : (
                   ""
                 )}
                 {item.flagStatus ? (
-                  <button className="btn btn-outline-primary">&#9999;</button>
+                  <div className="btn btn-outline-primary">&#9999;</div>
                 ) : (
                   ""
                 )}

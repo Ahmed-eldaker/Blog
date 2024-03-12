@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Home = (props) => {
   let { display, handleDelete } = props;
-  console.log(display);
+  // console.log(display);
   return (
     <div className="container d-flex justify-align-content-end align-items-center flex-column">
       <Link
@@ -23,17 +23,17 @@ export const Home = (props) => {
             {item.description}
             <div className="text-end">
               {item.flagStatus ? (
-                <button
+                <div
                   className="btn me-1 btn-outline-danger"
                   onClick={() => handleDelete(item.id)}
                 >
                   &#10060;
-                </button>
+                </div>
               ) : (
                 ""
               )}
               {item.flagStatus ? (
-                <button className="btn btn-outline-primary">&#9999;</button>
+                <div className="btn btn-outline-primary">&#9999;</div>
               ) : (
                 ""
               )}

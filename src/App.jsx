@@ -13,7 +13,6 @@ import axios from "axios";
 function App() {
   let [isLoggedIn, setIsLoggedIn] = useState(false);
   isLoggedIn = localStorage.getItem("userToken");
-  // let [Quotes, setQuotes] = useState();
   let [display, setDisplay] = useState([]);
 
   // Function to fetch data from the json
@@ -21,8 +20,6 @@ function App() {
     try {
       const response = await axios.get("http://localhost:3005/posts");
       setDisplay(response.data);
-      console.log(display);
-      console.log("Response data:", response.data);
     } catch (error) {
       console.error("Error fetching data:", error.message);
     }
@@ -30,7 +27,7 @@ function App() {
   useEffect(() => {
     displayData();
   }, []);
-  console.log(display);
+  // console.log(display);
 
   // Function to handle  dele
   const handleDelete = async (id) => {
