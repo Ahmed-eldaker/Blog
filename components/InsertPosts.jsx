@@ -14,7 +14,7 @@ const InsertPosts = () => {
     setError(null);
 
     const formData = new FormData();
-    formData.append("flag", flagStatus);
+    formData.append("flagStatus", flagStatus);
 
     formData.append("description", description);
 
@@ -62,7 +62,7 @@ const InsertPosts = () => {
         >
           Add your Quote
         </button>
-        {loading && <div class="loader"></div>}
+        {loading && <div className="loader"></div>}
         {error && <p>Error: {error}</p>}
       </form>
     </div>

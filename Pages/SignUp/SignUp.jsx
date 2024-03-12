@@ -159,7 +159,7 @@ const Register = () => {
           type="submit"
           disabled={loading}
         >
-          {loading ? <div class="loader"></div> : "Sign up"}
+          {loading ? <div className="loader"></div> : "Sign up"}
         </button>
 
         <span className="ms-3">

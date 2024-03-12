@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const NavBar = (props) => {
   let { isLoggedIn } = props;
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
   return (
     <>
       <div>

@@ -86,7 +86,7 @@ const Login = () => {
           type="submit"
           disabled={loading}
         >
-          {loading ? <div class="loader"></div> : "Login"}
+          {loading ? <div className="loader"></div> : "Login"}
         </button>
 
         <span className="ms-3 ">
@@ -96,7 +96,7 @@ const Login = () => {
             to="/signup"
           >
             Register here
-          </Link>{" "}
+          </Link>
         </span>
 
         {apiMessage && (
