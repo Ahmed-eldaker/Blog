@@ -8,8 +8,7 @@ export const MyProfile = ({ display, handleDelete, isLoggedIn }) => {
         width={"150px"}
         height={"150px"}
         className="bg-primary-subtle shadow my-3 rounded-circle"
-        src="/src/assets/logo_blog.png"
-        alt=""
+        src="/public/logo_blog.png"
       />
       <Link
         className="my-3 bg-primary-subtle btn text-decoration-none"
@@ -38,7 +37,12 @@ export const MyProfile = ({ display, handleDelete, isLoggedIn }) => {
                   ""
                 )}
                 {item.flagStatus && isLoggedIn ? (
-                  <div className="btn btn-outline-primary">&#9999;</div>
+                  <Link
+                    to={`/insertPosts/${item.id}`}
+                    className="btn btn-outline-primary"
+                  >
+                    &#9999;
+                  </Link>
                 ) : (
                   ""
                 )}

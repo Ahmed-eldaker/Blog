@@ -75,11 +75,12 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/*" element={<ErrorPage />} />
           <Route
-            path="/insertPosts/add"
+            path="/insertPosts/:id"
             element={
               <>
                 <NavBar isLoggedIn={isLoggedIn} />
                 <InsertPosts
+                  display={display}
                   isLoggedIn={isLoggedIn}
                   displayData={displayData}
                 />

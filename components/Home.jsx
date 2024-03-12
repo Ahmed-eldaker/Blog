@@ -9,7 +9,7 @@ export const Home = (props) => {
     <div className="container d-flex justify-align-content-end align-items-center flex-column">
       <Link
         className="my-3 bg-primary-subtle btn text-decoration-none"
-        to="/insertPosts"
+        to="/insertPosts/add"
       >
         What is happening?!
       </Link>
@@ -33,7 +33,10 @@ export const Home = (props) => {
                 ""
               )}
               {item.flagStatus && isLoggedIn ? (
-                <Link to={""} className="btn btn-outline-primary">
+                <Link
+                  to={`/insertPosts/${item.id}`}
+                  className="btn btn-outline-primary"
+                >
                   &#9999;
                 </Link>
               ) : (

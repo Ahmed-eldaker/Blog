@@ -29,7 +29,7 @@ export const NavBar = (props) => {
                   </Link>
                   <button
                     onClick={handleLogout}
-                    className="btn text-primary ms-4 cursor-pointer "
+                    className="btn text-primary  cursor-pointer "
                   >
                     Log out
                   </button>
