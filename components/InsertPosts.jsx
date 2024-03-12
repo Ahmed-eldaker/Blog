@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const InsertPosts = ({ displayData, isLoggedIn }) => {
   const [flagStatus, setFlagStatus] = useState(true);
@@ -30,6 +31,7 @@ const InsertPosts = ({ displayData, isLoggedIn }) => {
       clearForm();
       displayData();
       navigate("/home");
+      toast.success("Your Quote has been post successfully!");
     } catch (error) {
       setError(error.message);
     } finally {

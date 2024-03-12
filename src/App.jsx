@@ -14,7 +14,6 @@ import { ToastContainer, toast } from "react-toastify";
 function App() {
   let [isLoggedIn, setIsLoggedIn] = useState(false);
   isLoggedIn = localStorage.getItem("userToken");
-  // const [render, setRender] = useState(second);
   let [display, setDisplay] = useState([]);
 
   // Function to fetch data from the json
@@ -29,7 +28,6 @@ function App() {
   useEffect(() => {
     displayData();
   }, []);
-  // console.log(display);
 
   // Function to handle  dele
   const handleDelete = async (id) => {
@@ -77,7 +75,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/*" element={<ErrorPage />} />
           <Route
-            path="/insertPosts"
+            path="/insertPosts/add"
             element={
               <>
                 <NavBar isLoggedIn={isLoggedIn} />

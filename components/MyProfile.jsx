@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const MyProfile = ({ display, handleDelete }) => {
+export const MyProfile = ({ display, handleDelete, isLoggedIn }) => {
   return (
     <div className="d-flex w-100 flex-column justify-content-center align-items-center">
-      <h1> I'm {}</h1>
-      <div className=" end-0 top-0 ">Log out </div>
       <img
         width={"150px"}
         height={"150px"}

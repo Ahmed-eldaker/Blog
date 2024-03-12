@@ -33,7 +33,9 @@ export const Home = (props) => {
                 ""
               )}
               {item.flagStatus && isLoggedIn ? (
-                <div className="btn btn-outline-primary">&#9999;</div>
+                <Link to={""} className="btn btn-outline-primary">
+                  &#9999;
+                </Link>
               ) : (
                 ""
               )}

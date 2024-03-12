@@ -1,9 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export const NavBar = (props) => {
   let { isLoggedIn } = props;
-  // console.log(isLoggedIn);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("userToken");
+    navigate("/login");
+  };
   return (
     <>
       <div>
@@ -15,9 +19,21 @@ export const NavBar = (props) => {
 
             <div className="border-1 d-flex justify-content-between align-items-center">
               {isLoggedIn ? (
-                <Link className="nav-link " aria-current="page" to="/myProfile">
-                  My Profile
-                </Link>
+                <>
+                  <Link
+                    className="nav-link "
+                    aria-current="page"
+                    to="/myProfile"
+                  >
+                    My Profile
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="btn text-primary ms-4 cursor-pointer "
+                  >
+                    Log out
+                  </button>
+                </>
               ) : (
                 <Link className="nav-link " aria-current="page" to="/logIn">
                   LogIn
